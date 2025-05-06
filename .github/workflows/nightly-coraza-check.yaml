@@ -1,5 +1,6 @@
 name: Nightly Coraza Check
 on:
+  # test
   pull_request:
     paths:
       - ".github/workflows/nightly-coraza-check.yaml"
