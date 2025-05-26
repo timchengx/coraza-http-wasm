@@ -10,6 +10,7 @@ on:
 env:
   GO_VERSION: "1.23"
   TINYGO_VERSION: "0.33.0"
+  BINARYEN_VERSION: "123"
 
 jobs:
   test:
@@ -28,6 +29,7 @@ jobs:
         uses: acifani/setup-tinygo@v1
         with:
           tinygo-version: ${{ env.TINYGO_VERSION }}
+          binaryen-version: ${{ env.BINARYEN_VERSION }}
 
       - name: Get last commit of coraza
         id: coraza-latest-commit
