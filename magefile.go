@@ -21,10 +21,10 @@ import (
 var Default = Build
 
 var (
-	minGoVersion     = "1.22"
+	minGoVersion     = "1.23"
 	minTinygoVersion = "0.33.0"
-	golangCILintVer  = "v1.61.0" // https://github.com/golangci/golangci-lint/releases
-	gosImportsVer    = "v0.3.8"  // https://github.com/rinchsan/gosimports/releases/tag/v0.3.1
+	golangCILintVer  = "v2.1.6" // https://github.com/golangci/golangci-lint/releases
+	gosImportsVer    = "v0.3.8"  // https://github.com/rinchsan/gosimports/releases/tag/v0.3.8
 )
 
 var errCommitFormatting = errors.New("files not formatted, please commit formatting changes")
@@ -134,7 +134,7 @@ func Build() error {
 		return err
 	}
 
-	err := sh.RunV("tinygo", "build", "-o", filepath.Join("build", "coraza-http-wasm-raw.wasm"), "-opt=2", "-gc=custom", "-tags='custommalloc no_fs_access'", "-scheduler=none", "--no-debug", "-target=wasip1")
+	err := sh.RunV("tinygo", "build", "-o", filepath.Join("build", "coraza-http-wasm-raw.wasm"), "-opt=2", "-gc=custom", "-tags='custommalloc no_fs_access'", "-scheduler=none", "--no-debug", "-target=wasi")
 	if err != nil {
 		return err
 	}

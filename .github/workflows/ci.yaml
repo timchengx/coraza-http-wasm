@@ -15,8 +15,9 @@ on:
       - "LICENSE"
 
 env:
-  GO_VERSION: "1.22"
-  TINYGO_VERSION: "0.33.0"
+  GO_VERSION: "1.23"
+  TINYGO_VERSION: "0.36.0"
+  BINARYEN_VERSION: "123"
 
 jobs:
   build:
@@ -35,6 +36,8 @@ jobs:
         uses: acifani/setup-tinygo@v1
         with:
           tinygo-version: ${{ env.TINYGO_VERSION }}
+          binaryen-version: ${{ env.BINARYEN_VERSION }}
+
 
       - name: Build wasm binary
         run: go run mage.go build
