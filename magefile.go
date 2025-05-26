@@ -134,7 +134,7 @@ func Build() error {
 		return err
 	}
 
-	err := sh.RunV("tinygo", "build", "-o", filepath.Join("build", "coraza-http-wasm-raw.wasm"), "-opt=2", "-gc=custom", "-tags='custommalloc no_fs_access'", "-scheduler=none", "--no-debug", "-target=wasip1")
+	err := sh.RunV("tinygo", "build", "-o", filepath.Join("build", "coraza-http-wasm-raw.wasm"), "-opt=2", "-gc=custom", "-tags='custommalloc no_fs_access'", "-scheduler=none", "--no-debug", "-target=wasi")
 	if err != nil {
 		return err
 	}
